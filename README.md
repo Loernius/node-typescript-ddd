@@ -5,6 +5,10 @@
 - to see https://github.com/AndrejsAbrickis/ts-inversify-blog
 
 
+- this use https://github.com/inversify/inversify-express-utils
+- this use https://github.com/inversify/inversify-restify-utils
+
+
 ``` 
  "scripts": {
     "test": "jest",
