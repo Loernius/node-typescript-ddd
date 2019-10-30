@@ -3,8 +3,7 @@ import { Request, Response } from 'express';
 import { MailService } from '../../Application/Services/mail.service';
 import bootstrapper from '../../Infra/CrossCutting/BootStrapper';
 
-
-export default class MailController {
+class MailController {
 
   public _service: MailService;
 
@@ -18,3 +17,5 @@ export default class MailController {
     return res.json(service)
   }
 }
+
+export default new MailController();

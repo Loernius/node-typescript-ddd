@@ -5,16 +5,15 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon src/server.ts",
-    "prebuild": "rimraf dist",
-    "build": "sucrase ./src -d ./dist --transforms typescript,imports",
+    "dev": "nodemon --watch \"src/\" --exec \"ts-node src/server.ts\" -e ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "json-object-mapper": "^1.6.0",
     "mongodb": "^3.3.3",
-    "mongoose": "^5.7.7"
+    "mongoose": "^5.7.7",
+    "ts-node": "^8.4.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.4",
@@ -34,12 +33,12 @@
     "eslint-plugin-standard": "^4.0.0",
     "inversify": "^5.0.1",
     "jest": "^24.9.0",
-    "nodemon": "^1.18.10",
+    "nodemon": "^1.19.4",
     "prettier": "^1.16.4",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^2.6.3",
     "sucrase": "^3.10.0",
     "tsc": "^1.20150623.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.6.4"
   }
 }
