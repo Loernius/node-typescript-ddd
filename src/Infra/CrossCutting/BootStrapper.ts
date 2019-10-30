@@ -1,10 +1,9 @@
 import { Container } from "inversify";
 import { MailRepository } from "../Repository/mail.repository";
 
-var services = new Container();
+var bootstrapper = new Container();
 
 //Repository
-services.bind<MailRepository>(MailRepository).toSelf();
+bootstrapper.bind<MailRepository>(MailRepository).toSelf();
 
-
-export default services;
+export default bootstrapper;

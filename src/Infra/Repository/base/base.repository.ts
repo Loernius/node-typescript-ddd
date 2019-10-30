@@ -13,8 +13,9 @@ export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
   
     async create(item: T): Promise<boolean> {
       console.log('item', item);
-      const result: InsertOneWriteOpResult = await this._collection.insert(item);
-      return !!result.result;
+      // const result: InsertOneWriteOpResult = await this._collection.insert(item);
+      // return !!result.result;
+      return true;
     }
   
     update(id: string, item: T): Promise<boolean> {
