@@ -1,21 +1,22 @@
-import { MailDomain } from './../../Domain/mail.domain';
-import { Request, Response } from 'express';
+import {
+  controller, httpGet, httpPost, httpPut, httpDelete
+} from 'inversify-express-utils';
+import { inject } from 'inversify';
+import { Request } from 'express';
+
+import TYPES from '../../Infra/CrossCutting/Types';
+
 import { MailService } from '../../Application/Services/mail.service';
-import bootstrapper from '../../Infra/CrossCutting/BootStrapper';
+import { MailDomain } from '../../Domain/mail.domain';
 
-class MailController {
+@controller('/mail')
+export class UserController {
 
-  public _service: MailService;
+  constructor(@inject(TYPES.MailService) private mailService: MailService) { }
 
-  constructor() {
-    this._service = bootstrapper.resolve<MailService>(MailService);
-  }
-
-  public async send(req: Request, res: Response): Promise<Response> {
-    const mail: MailDomain = new MailDomain(req.body)
-    const service = this._service.create(mail);
-    return res.json(service)
+  @httpPost('/send')
+  public send(request: Request): Promise<boolean> {
+    const mail: MailDomain = new MailDomain(request.body)
+    return this.mailService.insertNewMail(mail);
   }
 }
-
-export default new MailController();

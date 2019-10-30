@@ -5,11 +5,11 @@ import { MongoClient, Db, Collection, InsertOneWriteOpResult } from 'mongodb';
 
 export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
 
-    public readonly _collection: Collection;
+    // public readonly _collection: Collection;
   
-    constructor(db: Db, collectionName: string) {
-      this._collection = db.collection(collectionName);
-    }
+    // constructor(db: Db, collectionName: string) {
+    //   this._collection = db.collection(collectionName);
+    // }
   
     async create(item: T): Promise<boolean> {
       console.log('item', item);

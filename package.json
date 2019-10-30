@@ -8,8 +8,12 @@
     "dev": "nodemon --watch \"src/\" --exec \"ts-node src/server.ts\" -e ts"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "inversify-express-utils": "^6.3.2",
+    "inversify-logger-middleware": "^3.1.0",
     "json-object-mapper": "^1.6.0",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.7",
